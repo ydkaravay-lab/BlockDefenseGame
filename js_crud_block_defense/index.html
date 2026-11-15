@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тетрис-защита</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="layout">
+        <section>
+            <h1>Тетрис-защита</h1>
+            <p>← / → — движение пушки, пробел — выстрел</p>
+            <canvas
+                id="game"
+                width="300"
+                height="650"
+                aria-label="Игровое поле"
+            ></canvas>
+            <p id="status"></p>
+        </section>
+        <section class="panel">
+            <h2>Панель уровней</h2>
+            <label for="preset-list">Сохранённые пресеты</label>
+            <select id="preset-list"></select>
+            <div class="buttons">
+                <button id="load-btn" type="button">Открыть</button>
+                <button id="delete-btn" type="button">Удалить</button>
+            </div>
+            <form id="preset-form">
+                <label for="name">Название</label>
+                <input id="name" maxlength="50" required>
+                <label for="drop">
+                    Интервал падения, мс
+                </label>
+                <input
+                    id="drop"
+                    type="number"
+                    min="100"
+                    max="10000"
+                    step="1"
+                    required
+                >
+                <label for="spawn">
+                    Пауза перед новой фигурой, мс
+                </label>
+                <input
+                    id="spawn"
+                    type="number"
+                    min="0"
+                    max="10000"
+                    step="1"
+                    required
+                >
+                <label for="durability">
+                    Прочность кубика, выстрелов
+                </label>
+                <input
+                    id="durability"
+                    type="number"
+                    min="1"
+                    max="20"
+                    step="1"
+                    required
+                >
+                <div class="buttons">
+                    <button type="submit">Создать</button>
+                    <button id="update-btn" type="button">Обновить</button>
+                </div>
+            </form>
+            <button id="apply-btn" type="button">
+                Применить и начать заново
+            </button>
+            <p id="panel-message" class="message" aria-live="polite"></p>
+            <p>
+                Пресеты сохраняются в localStorage этого браузера.
+            </p>
+        </section>
+    </div>
+    <script type="module" src="./game.js"></script>
+</body>
+</html>
