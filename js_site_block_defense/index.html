@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Defense Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1>Block Defense Portal</h1>
+        <p>Игровой портал «Тетрис-защита»</p>
+    </header>
+    <main>
+        <div class="game-layout">
+            <aside class="side-panel stats-panel">
+                <h2>Статистика</h2>
+                <div class="stat-row">
+                    <span>Текущий счёт</span>
+                    <strong id="score-value">0</strong>
+                </div>
+                <div class="stat-row">
+                    <span>Уничтожено блоков</span>
+                    <strong id="destroyed-value">0</strong>
+                </div>
+                <div class="stat-row">
+                    <span>Уровень сложности</span>
+                    <strong id="difficulty-value">Обычный</strong>
+                </div>
+            </aside>
+            <section class="game-panel" aria-label="Игра">
+                <canvas
+                    id="game"
+                    width="300"
+                    height="650"
+                    aria-label="Игровое поле Тетрис-защита"
+                ></canvas>
+                <p id="status" aria-live="polite"></p>
+                <p class="touch-hint">
+                    На телефоне: левая часть поля — влево,
+                    центр — выстрел, правая часть — вправо.
+                </p>
+            </section>
+            <aside class="side-panel instructions-panel">
+                <h2>Как играть</h2>
+                <ul class="instruction-list">
+                    <li>Защищай стакан от падающих фигур.</li>
+                    <li>← и → — перемещение пушки.</li>
+                    <li>Пробел — выстрел вверх.</li>
+                    <li>Попадания разрушают кубики фигуры.</li>
+                    <li>Заполненный ряд очищается.</li>
+                    <li>Если новой фигуре нет места, игра заканчивается.</li>
+                </ul>
+            </aside>
+        </div>
+        <section class="admin-panel">
+            <h2>Панель уровней</h2>
+            <label for="preset-list">Сохранённые пресеты</label>
+            <select id="preset-list"></select>
+            <div class="controls">
+                <button id="load-btn" type="button">Открыть</button>
+                <button id="delete-btn" type="button">Удалить</button>
+            </div>
+            <form id="preset-form">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="name">Название</label>
+                        <input id="name" maxlength="50" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="drop">Интервал падения, мс</label>
+                        <input
+                            id="drop"
+                            type="number"
+                            min="100"
+                            max="10000"
+                            step="1"
+                            required
+                        >
+                    </div>
+                    <div class="form-field">
+                        <label for="spawn">Пауза перед новой фигурой, мс</label>
+                        <input
+                            id="spawn"
+                            type="number"
+                            min="0"
+                            max="10000"
+                            step="1"
+                            required
+                        >
+                    </div>
+                    <div class="form-field">
+                        <label for="durability">Прочность кубика, выстрелов</label>
+                        <input
+                            id="durability"
+                            type="number"
+                            min="1"
+                            max="20"
+                            step="1"
+                            required
+                        >
+                    </div>
+                </div>
+                <div class="controls">
+                    <button type="submit">Создать</button>
+                    <button id="update-btn" type="button">Обновить</button>
+                </div>
+            </form>
+            <div class="controls">
+                <button id="apply-btn" type="button">
+                    Применить и начать заново
+                </button>
+            </div>
+            <p id="panel-message" class="message" aria-live="polite"></p>
+            <p>Пресеты сохраняются в localStorage этого браузера.</p>
+        </section>
+    </main>
+    <script type="module" src="./game.js"></script>
+</body>
+</html>
