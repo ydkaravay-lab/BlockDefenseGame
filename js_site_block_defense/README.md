@@ -52,6 +52,21 @@ python -m http.server 8002
 - Игровая логика использует классы `GameField`, `FallingShape` и `Cannon`
 - Пресеты сложности хранятся в `localStorage` под ключом `tetris_defense_presets` и обрабатываются модулем `presets.js`
 
+## Скриншоты
+
+### Десктоп
+![Главная страница js_site](screenshots/js_site_block_defense_desktop.png)
+
+### Мобильная адаптация
+![Мобильное меню](screenshots/js_site_block_defense_mobile.png)
+
+| iPhone SE | iPhone 16 | Pixel 9 |
+|---|---|---|
+| ![iPhone SE](screenshots/mobile/mobile-iPhone_SE.png) | ![iPhone 16](screenshots/mobile/mobile-iPhone_16.png) | ![Pixel 9](screenshots/mobile/mobile-Pixel_9.png) |
+
+### Планшет
+![iPad Pro 13](screenshots/mobile/mobile-iPad_Pro_13.png)
+
 ## Тестирование
 
 После запуска через локальный сервер проверьте:
